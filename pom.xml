@@ -60,7 +60,7 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <!--io.fabric8 plugin-->
+            <!--io.fabric8 plugin start-->
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
@@ -72,16 +72,7 @@
                         <image>
                             <name>${project.artifactId}</name>
                             <build>
-                                <!--                                <from>openjdk:14-alpine</from>-->
-                                <!--                                <entryPoint>-->
-                                <!--                                    <exec>-->
-                                <!--                                        <args>java</args>-->
-                                <!--                                        <args>-war</args>-->
-                                <!--                                        <args>/maven/${project.artifactId}-${project.version}.war</args>-->
-                                <!--                                    </exec>-->
-                                <!--                                </entryPoint>-->
-
-                                <dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
+                                <contextDir>${project.basedir}</contextDir>
 
                                 <assembly>
                                     <descriptorRef>artifact</descriptorRef>
@@ -111,15 +102,9 @@
                 </executions>
 
             </plugin>
+            <!--io.fabric8 plugin end-->
 
         </plugins>
-
-        <resources>
-            <resource>
-                <filtering>false</filtering>
-                <directory>src/main/resources</directory>
-            </resource>
-        </resources>
 
     </build>
 
